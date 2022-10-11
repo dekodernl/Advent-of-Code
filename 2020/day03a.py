@@ -1,0 +1,13 @@
+#!/usr/bin/python
+from load_puzzle_data import load_list
+
+lines = load_list(3)
+
+x = 0
+tree_count = 0
+for line in lines:
+    if line[x % len(line)] == "#":
+        tree_count += 1
+    x += 3
+
+print(tree_count)
