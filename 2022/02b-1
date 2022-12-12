@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+with open ('./02.data') as f:
+    lines = [line.rstrip() for line in f]
+
+lines = ["A Y", "B X", "C Z"]
+   
+left =  "A,B,C".split(",")
+right = "X,Y,Z".split(",")
+
+wins = ["A Y","B Z","C X"]
+equs = ["A X","B Y","C Z"]
+
+mapping = {
+        "X": {
+            "A":"Z",
+            "B":"X",
+            "C":"Y"
+        },
+        "Y": {
+            "A":"X",
+            "B":"Y",
+            "C":"Z"
+        },
+        "Z": {
+            "A":"Y",
+            "B":"Z",
+            "C":"X"
+        }
+}
+
+my_score = 0
+for line in lines:
+    my_score += 1
+    ls = 0
+    l, r = line.split(" ")
+    
+    u = left.index(l) + 1
+    i = right.index(r) + 1
+    
+    ls += i
+    
+    if line in wins:
+        ls += 6
+    elif line in equs:
+        ls += 3
+    
+    print(l, r, r2, u , i, ls, my_score)
+    my_score += ls
+print(my_score) 
+
+# 9087 low
+# 9507 low
+# 10100 low
+# 12007 x
